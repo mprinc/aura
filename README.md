@@ -9,7 +9,7 @@ Aura is a decoupled, event-driven architecture for developing widget-based appli
 ### The `Aura` object
 
 Your application will be an instance of the `Aura` object.
-
+<mprinc>shouldn't be instance of Aura class</mprinc>
 Its responsibilities are to load extensions when the app starts and clean them up when the app stops.
 
 ### Extension
@@ -23,14 +23,16 @@ The `core` implements aliases for DOM manipulation, templating and other lower-l
 ### Sandbox
 
 A `sandbox` is just a way to implement the [facade](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#facadepatternjavascript) pattern on top of features provided by `core`. It lets you expose the parts of a JavaScript library that are safe to use instead of exposing the entire API. This is particularly useful when working in teams.
-
+<mprinc>It would be nice if you can pick which options you wnat to expose same as with yousing permission config for deciding who can communicate with each other</mprinc>
+<mprinc>It would be also really cool if there is more complex and standardized communication protocol so widgets are able to have an ad-hoc dialog and discovery. Espec if application is too loosy to know all widgets, but then user is the one who is aware of them and can innitiate some data/knowledge exchange between them. Something like Yahoo pipes</mprinc>
 When your app starts, it will create an instance of `sandbox` in each of your widgets.
-
+<mprinc>Not sure that word 'in' is the most appropriate in the "in ieach of your widgets"</mprinc>
 ### Widget
 
 A widget represents a unit of a page. Each widget is independent.
+<mprinc>unit of app better than unit of page (since page is never introduced, and I think that concept of page do not ezist when we have more complex widget life-cycles)</mprinc>
 This means that they know nothing about each other. To make them communicate, a [Publish/Subscribe (Mediator)](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#mediatorpatternjavascript) pattern is used.
-
+<mprinc>Well they most likely know since aura is mostly for monolit apps, but they do not need to know and depend on each other</mprinc>
 
 ## Getting started
 
